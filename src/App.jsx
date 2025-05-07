@@ -3,6 +3,7 @@ function App() {
   const animation = ["GSAP", "Framer Motion"];
   const Others = ["Mongoose Database", "SQL", "Git", "Python"];
   const backend = ["NodeJs", "ExpressJs", "Flask"];
+
   return (
     <>
       <div>
@@ -16,14 +17,14 @@ function App() {
               <p>Contact</p>
             </nav>
           </div>
-          <div className="flex justify-center gap-7 mt-56">
+          <div className="flex justify-center gap-14 mt-56">
             <div>
               <img
-                className="h-[300px]"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl5NECw1VkX_oT_2yDyBObA1ePmGvsma0fhQ&s"
+                className="h-[320px]  rounded-full"
+                src="https://placehold.co/600x600?text=Dummy+Image"
               />
             </div>
-            <div>
+            <div className="text-center">
               <p className="text-gray-500">Hello, I'm </p>
               <p className="text-headingC text-[48px] font-bold">
                 Sourav Sarkar
@@ -32,22 +33,38 @@ function App() {
                 Full Stack Developer
               </p>
               <div className="mt-3">
-                <button className="bg-gray-500 hover:bg-gray-900 hover:text-amber-50 rounded-2xl px-4 py-2 me-4">
+                <a
+                  download={true}
+                  href="/Resume.pdf"
+                  className="border border-black hover:bg-black hover:text-white rounded-4xl px-4 py-2 me-4"
+                >
                   Download CV
-                </button>
-                <button className="bg-gray-500  hover:bg-gray-900 hover:text-amber-50 rounded-2xl px-4 py-2">
+                </a>
+                <button className="bg-gray-800 cursor-pointer text-white hover:bg-gray-950 hover:text-amber-50 rounded-4xl px-4 py-2">
                   Contact Info
                 </button>
               </div>
-              <div className="mt-5">
-                <button className="bg-gray-500  hover:bg-gray-900 hover:text-amber-50 rounded-2xl px-4 py-2 me-4">
-                  {" "}
-                  Linkedin Icons
-                </button>
-                <button className="bg-gray-500  hover:bg-gray-900 hover:text-amber-50 rounded-2xl px-4 py-2">
-                  {" "}
-                  Github Icons
-                </button>
+              <div className="mt-5 flex justify-center gap-5">
+                <a
+                  href="https://github.com/sourav7274"
+                  target="_blank"
+                  className="cursor-pointer"
+                >
+                  <img
+                    className="h-[45px]"
+                    src="https://www.svgrepo.com/show/512317/github-142.svg"
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/sourav-sarkar7274/"
+                  target="_blank"
+                  className="cursor-pointer"
+                >
+                  <img
+                    className="h-[50px]"
+                    src="https://www.svgrepo.com/show/452051/linkedin.svg"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -97,7 +114,7 @@ function App() {
                   {frontend.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="bg-blue-400 text-white px-4 py-2 rounded-2xl text-sm"
+                      className="bg-blue-400  hover:bg-blue-700 hover:scale-105 text-white px-4 py-2 rounded-2xl text-sm"
                     >
                       {skill}
                     </span>
@@ -111,7 +128,7 @@ function App() {
                   {animation.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="bg-green-400 text-white px-4 py-2 rounded-2xl text-sm"
+                      className="bg-green-400  hover:bg-green-700 hover:scale-105 text-white px-4 py-2 rounded-2xl text-sm"
                     >
                       {skill}
                     </span>
@@ -128,7 +145,7 @@ function App() {
                   {backend.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="bg-blue-400 text-white px-4 py-2 rounded-2xl text-sm"
+                      className="bg-blue-400  hover:bg-blue-700 hover:scale-105 text-white px-4 py-2 rounded-2xl text-sm"
                     >
                       {skill}
                     </span>
@@ -144,7 +161,7 @@ function App() {
                   {Others.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="bg-green-400 text-white px-4 py-2 rounded-2xl text-sm"
+                      className="bg-green-400  hover:bg-green-700 hover:scale-105 text-white px-4 py-2 rounded-2xl text-sm"
                     >
                       {skill}
                     </span>
@@ -165,12 +182,16 @@ function App() {
               </div>
               <p className="my-5">E commerce Website </p>
               <div>
-                <button className="me-10 cursor-pointer bg-black  text-amber-100 hover:bg-white  hover:text-black px-4 py-2 rounded-2xl">
+                <a className="me-10 cursor-pointer bg-black  text-amber-100 hover:bg-white  hover:text-black px-4 py-2 rounded-2xl">
                   Github
-                </button>
-                <button className=" bg-black cursor-pointer text-amber-100  hover:bg-white  hover:text-black px-4 py-2 rounded-2xl">
+                </a>
+                <a
+                  href="https://p1-frontend-beige.vercel.app/"
+                  target="_blank"
+                  className=" bg-black cursor-pointer text-amber-100  hover:bg-white  hover:text-black px-4 py-2 rounded-2xl"
+                >
                   Live Demo
-                </button>
+                </a>
               </div>
             </div>
             <div className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl  align-middle">
@@ -182,9 +203,13 @@ function App() {
                 <button className="me-10 cursor-pointer  bg-black  hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl">
                   Github
                 </button>
-                <button className=" bg-black cursor-pointer  hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl">
+                <a
+                  href="https://actual-project2-fe.vercel.app/"
+                  target="_blank"
+                  className=" bg-black cursor-pointer  hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl"
+                >
                   Live Demo
-                </button>
+                </a>
               </div>
             </div>
             <div className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle">
@@ -193,11 +218,11 @@ function App() {
               </div>
               <p className="my-5">Social Media App</p>
               <div>
-                <button className="me-10 bg-black cursor-pointer  hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl">
+                <a className="me-10 bg-black cursor-pointer  hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl">
                   Github
-                </button>
+                </a>
                 <button
-                  className="10 bg-black  cursor-pointer hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl"
+                  className="10 bg-black   text-amber-100 px-4 py-2 rounded-2xl"
                   disabled
                 >
                   Live Demo
@@ -206,20 +231,33 @@ function App() {
             </div>
           </div>
         </section>
+
         <section className="min-h-[60vh] text-center mt-5">
           <p className="mt-15">Get in Touch</p>
           <p className="text-5xl mt-5">Contact Me</p>
           <div className="mt-10 w-96 border border-black p-4 rounded-lg flex justify-between gap-20 mx-auto">
-            <div>
-              <img src="" alt="Email LOGO" />
-              <p className="cursor-pointer hover:underline">
+            <div className="flex mt-4">
+              <img
+                className="h-[30px]"
+                src="https://www.svgrepo.com/show/488920/email.svg"
+                alt="Email LOGO"
+              />
+              <a
+                href="mailto:souravsarkar6259@gmail.com"
+                className="cursor-pointer hover:underline"
+              >
                 souravsarkar6259@gmail.com
-              </p>
+              </a>
             </div>
-            <div>
-              <img src="" alt="LinkedI LOGO" />
-              <p className="cursor-pointer hover:underline">LinkedIn</p>
-            </div>
+            <a
+              href="https://www.linkedin.com/in/sourav-sarkar7274/"
+              target="_blank"
+            >
+              <img
+                src="https://www.svgrepo.com/show/506517/linkedin.svg"
+                alt="LinkedI LOGO"
+              />
+            </a>
           </div>
           <div className="flex gap-10 justify-center mt-30">
             <p>About</p>
@@ -228,7 +266,7 @@ function App() {
             <p>Contact</p>
           </div>
           <p className=" mt-35">
-            Copyright © 2025 DUmmy Name. All Rights Reserved.
+            Copyright © 2025 Dummy Name. All Rights Reserved.
           </p>
         </section>
       </div>
