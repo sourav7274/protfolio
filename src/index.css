@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@theme {
+  --color-headingC: rgb(41, 0, 0);
+}
