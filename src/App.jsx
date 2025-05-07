@@ -18,12 +18,12 @@ function App() {
             </nav>
           </div>
           <div className="flex justify-center gap-14 mt-56">
-            <div>
+            {/* <div>
               <img
                 className="h-[320px]  rounded-full"
                 src="https://placehold.co/600x600?text=Dummy+Image"
               />
-            </div>
+            </div> */}
             <div className="text-center">
               <p className="text-gray-500">Hello, I'm </p>
               <p className="text-headingC text-[48px] font-bold">
