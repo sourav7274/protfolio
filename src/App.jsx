@@ -1,29 +1,101 @@
+import { useState } from "react";
+
 function App() {
   const frontend = ["HTML", "CSS", "TailwindCSS", "Bootstrap", "ReactJs"];
   const animation = ["GSAP", "Framer Motion"];
   const Others = ["Mongoose Database", "SQL", "Git", "Python"];
   const backend = ["NodeJs", "ExpressJs", "Flask"];
-
+  const [burgerOCross, setBurger] = useState(true);
+  const [showDrop, setShow] = useState(false);
   return (
     <>
       <div>
         <section className="h-[80vh] w-full pt-10 ps-10 pe-7">
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <p className="text-4xl ms-10 text-headingC">Sourav Sarkar</p>
-            <nav className="text-2xl me-10 flex gap-5">
-              <p>About</p>
-              <p>Experience</p>
-              <p>Projects</p>
-              <p>Contact</p>
+            <nav className="text-2xl me-10  gap-5 hidden lg:flex space-x-6">
+              <a
+                className="hover:text-gray-600 hover:underline hover:underline-offset-10"
+                href="#about"
+              >
+                About
+              </a>
+              <a
+                className="hover:text-gray-600 hover:underline hover:underline-offset-10"
+                href="#experience"
+              >
+                Experience
+              </a>
+              <a
+                className="hover:text-gray-600 hover:underline hover:underline-offset-10"
+                href="#projects"
+              >
+                Projects
+              </a>
+              <a
+                className="hover:text-gray-600 hover:underline hover:underline-offset-10"
+                href="#contact"
+              >
+                Contact
+              </a>
             </nav>
+            <button
+              onClick={() => setBurger(!burgerOCross)}
+              className="lg:hidden flex flex-col justify-center items-center"
+            >
+              {burgerOCross ? (
+                <img
+                  onClick={() => setShow(true)}
+                  className="h-[60px]"
+                  src="https://www.svgrepo.com/show/520760/hamburger-4.svg"
+                  alt="hamburger_logo"
+                />
+              ) : (
+                <img
+                  onClick={() => setShow(false)}
+                  src="https://www.svgrepo.com/show/422351/cancel-close-cross.svg"
+                  className="h-[40px]"
+                />
+              )}
+            </button>
           </div>
-          <div className="flex justify-center gap-14 mt-56">
-            {/* <div>
-              <img
-                className="h-[320px]  rounded-full"
-                src="https://placehold.co/600x600?text=Dummy+Image"
-              />
-            </div> */}
+          <div className="relative">
+            {showDrop && (
+              <div className="lg:hidden absolute mt-4 flex flex-col space-y-3 top-[15px] right-[0%] text-xl">
+                <a
+                  href="#about"
+                  className="hover:underline hover:text-gray-600 hover:underline-offset-10"
+                >
+                  About
+                </a>
+                <a
+                  href="#experience"
+                  className="hover:underline hover:text-gray-600 hover:underline-offset-10"
+                >
+                  Experience
+                </a>
+                <a
+                  href="#projects"
+                  className="hover:underline hover:text-gray-600 hover:underline-offset-10"
+                >
+                  Projects
+                </a>
+                <a
+                  href="#contact"
+                  className="hover:underline hover:text-gray-600 hover:underline-offset-10"
+                >
+                  Contact
+                </a>
+              </div>
+            )}
+          </div>
+
+          {/* Add margin-top when dropdown is visible */}
+          <div
+            className={`flex justify-center gap-14 mt-56 ${
+              showDrop ? "mt-20" : "mt-56"
+            }`}
+          >
             <div className="text-center">
               <p className="text-gray-500">Hello, I'm </p>
               <p className="text-headingC text-[48px] font-bold">
@@ -61,8 +133,8 @@ function App() {
                   className="cursor-pointer"
                 >
                   <img
-                    className="h-[50px]"
-                    src="https://www.svgrepo.com/show/452051/linkedin.svg"
+                    className="h-[45px]"
+                    src="https://www.svgrepo.com/show/494278/linkedin-round.svg"
                   />
                 </a>
               </div>
@@ -70,7 +142,7 @@ function App() {
           </div>
         </section>
 
-        <section className="h-screen  text-center w-full pt-25">
+        <section id="about" className="h-screen  text-center w-full pt-25">
           <p className="text-l">Get to Know More</p>
           <p className="text-5xl font-bold mt-4">About Me</p>
 
@@ -101,7 +173,7 @@ function App() {
           </div>
         </section>
 
-        <section className="h-[70vh] text-center px-4 py-10">
+        <section id="experience" className="mt-10 text-center px-4 py-10">
           <p className="text-gray-500">Explore My</p>
           <p className="text-headingC text-5xl font-bold mb-10">Experience</p>
 
@@ -172,7 +244,7 @@ function App() {
           </div>
         </section>
 
-        <section className="min-h-[60vh] text-center">
+        <section id="projects" className=" text-center mt-10">
           <p>Browse My Recent</p>
           <p className="text-headingC text-5xl font-bold">Projects</p>
           <div className="flex  flex-wrap justify-center mt-10 gap-10 px-4">
@@ -181,17 +253,46 @@ function App() {
                 <img src="https://images.unsplash.com/photo-1657812159075-7f0abd98f7b8?q=80&w=1277&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
               </div>
               <p className="my-5">E commerce Website </p>
-              <div>
-                <a className="me-10 cursor-pointer bg-black  text-amber-100 hover:bg-white  hover:text-black px-4 py-2 rounded-2xl">
-                  Github
-                </a>
-                <a
-                  href="https://p1-frontend-beige.vercel.app/"
-                  target="_blank"
-                  className=" bg-black cursor-pointer text-amber-100  hover:bg-white  hover:text-black px-4 py-2 rounded-2xl"
-                >
-                  Live Demo
-                </a>
+              <div className="flex justify-evenly gap-5 ">
+                <div className="flex gap-1">
+                  <img
+                    src="https://www.svgrepo.com/show/506497/github.svg"
+                    className="h-[30px]"
+                  />
+                  <a
+                    href="https://github.com/sourav7274/P1_Frontend"
+                    target="_blank"
+                    className=" cursor-pointer hover:underline "
+                  >
+                    Frontend
+                  </a>
+                </div>
+                <div className="flex gap-1">
+                  <img
+                    src="https://www.svgrepo.com/show/506497/github.svg"
+                    className="h-[30px]"
+                  />
+                  <a
+                    href="https://github.com/sourav7274/P1_Backend"
+                    target="_blank"
+                    className=" cursor-pointer hover:underline"
+                  >
+                    Backend
+                  </a>
+                </div>
+                <div className="flex gap-1">
+                  <img
+                    src="https://www.svgrepo.com/show/309737/live.svg"
+                    className="h-[30px]"
+                  />
+                  <a
+                    href="https://p1-frontend-beige.vercel.app/"
+                    target="_blank"
+                    className=" cursor-pointer hover:underline "
+                  >
+                    Live Demo
+                  </a>
+                </div>
               </div>
             </div>
             <div className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl  align-middle">
@@ -200,16 +301,47 @@ function App() {
               </div>
               <p className="my-5">CRM Dashboard </p>
               <div>
-                <button className="me-10 cursor-pointer  bg-black  hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl">
-                  Github
-                </button>
-                <a
-                  href="https://actual-project2-fe.vercel.app/"
-                  target="_blank"
-                  className=" bg-black cursor-pointer  hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl"
-                >
-                  Live Demo
-                </a>
+                <div className="flex justify-evenly gap-5 ">
+                  <div className="flex gap-1">
+                    <img
+                      src="https://www.svgrepo.com/show/506497/github.svg"
+                      className="h-[30px]"
+                    />
+                    <a
+                      href="https://github.com/sourav7274/Actual_Project2_FE"
+                      target="_blank"
+                      className=" cursor-pointer hover:underline "
+                    >
+                      Frontend
+                    </a>
+                  </div>
+                  <div className="flex gap-1">
+                    <img
+                      src="https://www.svgrepo.com/show/506497/github.svg"
+                      className="h-[30px]"
+                    />
+                    <a
+                      href="https://github.com/sourav7274/ActaulPrpject_BE"
+                      target="_blank"
+                      className=" cursor-pointer hover:underline"
+                    >
+                      Backend
+                    </a>
+                  </div>
+                  <div className="flex gap-1">
+                    <img
+                      src="https://www.svgrepo.com/show/309737/live.svg"
+                      className="h-[30px]"
+                    />
+                    <a
+                      href="https://actual-project2-fe.vercel.app/"
+                      target="_blank"
+                      className="cursor-pointer hover:underline "
+                    >
+                      Live Demo
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle">
@@ -218,24 +350,50 @@ function App() {
               </div>
               <p className="my-5">Social Media App</p>
               <div>
-                <a className="me-10 bg-black cursor-pointer  hover:bg-white  hover:text-black text-amber-100 px-4 py-2 rounded-2xl">
-                  Github
-                </a>
-                <button
-                  className="10 bg-black   text-amber-100 px-4 py-2 rounded-2xl"
-                  disabled
-                >
-                  Live Demo
-                </button>
+                <div className="flex justify-evenly gap-5 ">
+                  <div className="flex gap-1">
+                    <img
+                      src="https://www.svgrepo.com/show/506497/github.svg"
+                      className="h-[30px]"
+                    />
+                    <a
+                      href="https://github.com/sourav7274/redditClone_FE"
+                      target="_blank"
+                      className=" cursor-pointer hover:underline "
+                    >
+                      Frontend
+                    </a>
+                  </div>
+                  <div className="flex gap-1">
+                    <img
+                      src="https://www.svgrepo.com/show/506497/github.svg"
+                      className="h-[30px]"
+                    />
+                    <a
+                      href="https://github.com/sourav7274/redditClone_BE"
+                      target="_blank"
+                      className=" cursor-pointer hover:underline"
+                    >
+                      Backend
+                    </a>
+                  </div>
+                  {/* <div className="flex gap-1">
+                    <img
+                      src="https://www.svgrepo.com/show/309737/live.svg"
+                      className="h-[30px]"
+                    />
+                    <button disabled>Live Demo</button>
+                  </div> */}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="min-h-[60vh] text-center mt-5">
+        <section id="contact" className=" text-center mt-10">
           <p className="mt-15">Get in Touch</p>
-          <p className="text-5xl mt-5">Contact Me</p>
-          <div className="mt-10 w-96 border border-black p-4 rounded-lg flex justify-between gap-20 mx-auto">
+          <p className="text-5xl mt-5 font-bold">Contact Me</p>
+          <div className="mt-10 w-[450px] border border-black p-4 rounded-4xl flex justify-between gap-5 mx-auto">
             <div className="flex mt-4">
               <img
                 className="h-[30px]"
@@ -244,26 +402,52 @@ function App() {
               />
               <a
                 href="mailto:souravsarkar6259@gmail.com"
-                className="cursor-pointer hover:underline"
+                className="cursor-pointer hover:underline hover:underline-offset-10 ms-2 hover:text-gray-500 hover:bg-gray-100"
               >
                 souravsarkar6259@gmail.com
               </a>
             </div>
-            <a
-              href="https://www.linkedin.com/in/sourav-sarkar7274/"
-              target="_blank"
-            >
+            <div className="flex">
               <img
+                className="h-[50px]"
                 src="https://www.svgrepo.com/show/506517/linkedin.svg"
                 alt="LinkedI LOGO"
               />
-            </a>
+
+              <a
+                href="https://www.linkedin.com/in/sourav-sarkar7274/"
+                target="_blank"
+                className="cursor-pointer hover:underline hover:underline-offset-10 mt-3 hover:text-gray-500 hover:bg-gray-100"
+              >
+                linkedin
+              </a>
+            </div>
           </div>
           <div className="flex gap-10 justify-center mt-30">
-            <p>About</p>
-            <p>Experience</p>
-            <p>Project</p>
-            <p>Contact</p>
+            <a
+              className="hover:text-gray-600 hover:underline hover:underline-offset-10"
+              href="#about"
+            >
+              About
+            </a>
+            <a
+              className="hover:text-gray-600 hover:underline hover:underline-offset-10"
+              href="#experience"
+            >
+              Experience
+            </a>
+            <a
+              className="hover:text-gray-600 hover:underline hover:underline-offset-10"
+              href="#projects"
+            >
+              Projects
+            </a>
+            <a
+              className="hover:text-gray-600 hover:underline hover:underline-offset-10"
+              href="#contact"
+            >
+              Contact
+            </a>
           </div>
           <p className=" mt-35">
             Copyright © 2025 Dummy Name. All Rights Reserved.
