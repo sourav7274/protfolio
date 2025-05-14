@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 
 function App() {
   const frontend = ["HTML", "CSS", "TailwindCSS", "Bootstrap", "ReactJs"];
@@ -9,7 +10,7 @@ function App() {
   const [showDrop, setShow] = useState(false);
   return (
     <>
-      <div>
+      <div className="scroll-smooth">
         <section className="h-[80vh] w-full pt-10 ps-10 pe-7">
           <div className="flex justify-between items-center">
             <p className="text-4xl ms-10 text-headingC">Sourav Sarkar</p>
@@ -142,21 +143,24 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="h-screen  text-center w-full pt-25">
-          <p className="text-l">Get to Know More</p>
-          <p className="text-5xl font-bold mt-4">About Me</p>
+        <section id="about" className="h-screen w-full pt-25">
+          <p className="text-l text-center">Get to Know More</p>
+          <p className="text-5xl font-bold mt-4 text-center">About Me</p>
 
-          <div className="flex justify-center gap-4 max-w-7xl mt-50 mx-auto px-4">
+          <div className="flex  justify-center gap-4 max-w-7xl mt-50 mx-auto px-4">
             {/* <div className="basis-1/3 bg-gray-100 p-4 rounded">Experience</div> */}
-            <div className="basis-1/3 border border-black rounded-3xl h-[250px] p-4 rounded">
-              <p className="text-3xl">Education</p>
-              <p className="mt-5 text-xl">B.Tech Mechanical Engineering</p>
-              <p className="mt-5">Passing Out Year - 2023</p>
-              <p className="text-gray-600 mt-15">
+            <div className="basis-1/3 flex flex-col justify-between border text-center border-black rounded-3xl min-h-[250px] p-4 ">
+              <p className="text-3xl mt-5">Education</p>
+              <div>
+                <p className="mt-7 text-xl">B.Tech Mechanical Engineering</p>
+                <p className="mt-5">Passing Out Year - 2023</p>
+              </div>
+
+              <p className="text-gray-600 mt-15 mb-2">
                 National Institute Of Technology, Durgapur
               </p>
             </div>
-            <div className="basis-1/3 h-[350px]  ms-15 rounded overflow-y-auto overflow-hidden">
+            <div className="basis-1/3 h-[350px] text-[16.5px]  ms-15 rounded overflow-y-auto overflow-hidden">
               Hi, I'm a passionate and driven Full Stack Web Developer actively
               seeking exciting opportunities to contribute to impactful projects
               and grow in a professional development role. Originally trained as
@@ -244,25 +248,35 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className=" text-center mt-10">
+        <section id="projects" className="text-center mt-10">
           <p>Browse My Recent</p>
           <p className="text-headingC text-5xl font-bold">Projects</p>
-          <div className="flex  flex-wrap justify-center mt-10 gap-10 px-4">
-            <div className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle">
+          <div className="flex flex-wrap justify-center mt-10 gap-10 px-4">
+            <motion.div
+              className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle"
+              initial={{ opacity: 0, y: 50 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               <div>
-                <img src="https://images.unsplash.com/photo-1657812159075-7f0abd98f7b8?q=80&w=1277&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                <img
+                  src="https://images.unsplash.com/photo-1657812159075-7f0abd98f7b8?q=80&w=1277&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="E commerce Website"
+                />
               </div>
               <p className="my-5">E commerce Website </p>
-              <div className="flex justify-evenly gap-5 ">
+              <div className="flex justify-evenly gap-5">
                 <div className="flex gap-1">
                   <img
                     src="https://www.svgrepo.com/show/506497/github.svg"
                     className="h-[30px]"
+                    alt="Github"
                   />
                   <a
                     href="https://github.com/sourav7274/P1_Frontend"
                     target="_blank"
-                    className=" cursor-pointer hover:underline "
+                    className="cursor-pointer hover:underline"
                   >
                     Frontend
                   </a>
@@ -271,11 +285,12 @@ function App() {
                   <img
                     src="https://www.svgrepo.com/show/506497/github.svg"
                     className="h-[30px]"
+                    alt="Github"
                   />
                   <a
                     href="https://github.com/sourav7274/P1_Backend"
                     target="_blank"
-                    className=" cursor-pointer hover:underline"
+                    className="cursor-pointer hover:underline"
                   >
                     Backend
                   </a>
@@ -284,33 +299,46 @@ function App() {
                   <img
                     src="https://www.svgrepo.com/show/309737/live.svg"
                     className="h-[30px]"
+                    alt="Live Demo"
                   />
                   <a
                     href="https://p1-frontend-beige.vercel.app/"
                     target="_blank"
-                    className=" cursor-pointer hover:underline "
+                    className="cursor-pointer hover:underline"
                   >
                     Live Demo
                   </a>
                 </div>
               </div>
-            </div>
-            <div className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl  align-middle">
+            </motion.div>
+
+            {/* Repeat the same for other project cards */}
+            <motion.div
+              className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               <div>
-                <img src="https://plus.unsplash.com/premium_photo-1733328013343-e5ee77acaf05?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                <img
+                  src="https://plus.unsplash.com/premium_photo-1733328013343-e5ee77acaf05?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="CRM Dashboard"
+                />
               </div>
               <p className="my-5">CRM Dashboard </p>
               <div>
-                <div className="flex justify-evenly gap-5 ">
+                <div className="flex justify-evenly gap-5">
                   <div className="flex gap-1">
                     <img
                       src="https://www.svgrepo.com/show/506497/github.svg"
                       className="h-[30px]"
+                      alt="Github"
                     />
                     <a
                       href="https://github.com/sourav7274/Actual_Project2_FE"
                       target="_blank"
-                      className=" cursor-pointer hover:underline "
+                      className="cursor-pointer hover:underline"
                     >
                       Frontend
                     </a>
@@ -319,11 +347,12 @@ function App() {
                     <img
                       src="https://www.svgrepo.com/show/506497/github.svg"
                       className="h-[30px]"
+                      alt="Github"
                     />
                     <a
                       href="https://github.com/sourav7274/ActaulPrpject_BE"
                       target="_blank"
-                      className=" cursor-pointer hover:underline"
+                      className="cursor-pointer hover:underline"
                     >
                       Backend
                     </a>
@@ -332,34 +361,46 @@ function App() {
                     <img
                       src="https://www.svgrepo.com/show/309737/live.svg"
                       className="h-[30px]"
+                      alt="Live Demo"
                     />
                     <a
                       href="https://actual-project2-fe.vercel.app/"
                       target="_blank"
-                      className="cursor-pointer hover:underline "
+                      className="cursor-pointer hover:underline"
                     >
                       Live Demo
                     </a>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle">
+            </motion.div>
+
+            <motion.div
+              className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
               <div>
-                <img src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?q=80&w=1100&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                <img
+                  src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?q=80&w=1100&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Social Media App"
+                />
               </div>
               <p className="my-5">Social Media App</p>
               <div>
-                <div className="flex justify-evenly gap-5 ">
+                <div className="flex justify-evenly gap-5">
                   <div className="flex gap-1">
                     <img
                       src="https://www.svgrepo.com/show/506497/github.svg"
                       className="h-[30px]"
+                      alt="Github"
                     />
                     <a
                       href="https://github.com/sourav7274/redditClone_FE"
                       target="_blank"
-                      className=" cursor-pointer hover:underline "
+                      className="cursor-pointer hover:underline"
                     >
                       Frontend
                     </a>
@@ -368,25 +409,19 @@ function App() {
                     <img
                       src="https://www.svgrepo.com/show/506497/github.svg"
                       className="h-[30px]"
+                      alt="Github"
                     />
                     <a
                       href="https://github.com/sourav7274/redditClone_BE"
                       target="_blank"
-                      className=" cursor-pointer hover:underline"
+                      className="cursor-pointer hover:underline"
                     >
                       Backend
                     </a>
                   </div>
-                  {/* <div className="flex gap-1">
-                    <img
-                      src="https://www.svgrepo.com/show/309737/live.svg"
-                      className="h-[30px]"
-                    />
-                    <button disabled>Live Demo</button>
-                  </div> */}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -401,7 +436,8 @@ function App() {
                 alt="Email LOGO"
               />
               <a
-                href="mailto:souravsarkar6259@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=souravsarkar6259@gmail.com"
+                target="_blank"
                 className="cursor-pointer hover:underline hover:underline-offset-10 ms-2 hover:text-gray-500 hover:bg-gray-100"
               >
                 souravsarkar6259@gmail.com

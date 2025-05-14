@@ -3,3 +3,11 @@
 @theme {
   --color-headingC: rgb(41, 0, 0);
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
