@@ -18,4 +18,4 @@ A personal portfolio website showcasing my background, skills, and projects. Bui
 
 ## Demo Link
 
-[Live Demo] (https://protfolio-mu-cyan.vercel.app/)
+[Live Demo](https://protfolio-mu-cyan.vercel.app/)
