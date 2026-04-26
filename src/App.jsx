@@ -2,10 +2,12 @@ import { useState } from "react";
 import { motion } from "motion/react";
 
 function App() {
-  const frontend = ["HTML", "CSS", "TailwindCSS", "Bootstrap", "ReactJs"];
-  const animation = ["GSAP", "Framer Motion"];
-  const Others = ["Mongoose Database", "SQL", "Git", "Python"];
-  const backend = ["NodeJs", "ExpressJs", "Flask"];
+  const aiLlm = ["AI/LLM Integration", "Local Model Deployment"];
+  const frontend = ["React.js", "React Native", "Tailwind CSS", "Bootstrap", "Framer Motion", "HTML", "CSS"];
+  const backend = ["Node.js", "Express.js", "REST API Design", "JWT Authentication"];
+  const databases = ["MongoDB", "MySQL"];
+  const devops = ["Git", "Docker", "AWS (EC2, ECR, EventBridge)"];
+
   const [burgerOCross, setBurger] = useState(true);
   const [showDrop, setShow] = useState(false);
   return (
@@ -91,7 +93,6 @@ function App() {
             )}
           </div>
 
-          {/* Add margin-top when dropdown is visible */}
           <div
             className={`flex justify-center gap-14 mt-56 ${
               showDrop ? "mt-20" : "mt-56"
@@ -139,6 +140,7 @@ function App() {
                   />
                 </a>
               </div>
+              <p className="mt-3 text-gray-600">8925743416</p>
             </div>
           </div>
         </section>
@@ -148,12 +150,11 @@ function App() {
           <p className="text-5xl font-bold mt-4 text-center">About Me</p>
 
           <div className="flex  justify-center gap-4 max-w-7xl mt-50 mx-auto px-4">
-            {/* <div className="basis-1/3 bg-gray-100 p-4 rounded">Experience</div> */}
             <div className="basis-1/3 flex flex-col justify-between border text-center border-black rounded-3xl min-h-[250px] p-4 ">
               <p className="text-3xl mt-5">Education</p>
               <div>
                 <p className="mt-7 text-xl">B.Tech Mechanical Engineering</p>
-                <p className="mt-5">Passing Out Year - 2023</p>
+                <p className="mt-5">August 2023</p>
               </div>
 
               <p className="text-gray-600 mt-15 mb-2">
@@ -161,18 +162,7 @@ function App() {
               </p>
             </div>
             <div className="basis-1/3 h-[350px] text-[16.5px]  ms-15 rounded overflow-y-auto overflow-hidden">
-              Hi, I'm a passionate and driven Full Stack Web Developer actively
-              seeking exciting opportunities to contribute to impactful projects
-              and grow in a professional development role. Originally trained as
-              a Mechanical Engineer, I’ve transitioned into tech by diving deep
-              into full stack development. I specialize in the MERN stack and
-              have built multiple end-to-end applications including e-commerce
-              platforms, social media interfaces, and CRM dashboards. I love
-              turning ideas into interactive, functional web
-              experiences—particularly with strong interest in web animations
-              I’m currently looking for opportunities where I can apply my
-              skills, contribute meaningfully, and continue learning alongside
-              experienced professionals.
+              I am a Full Stack Developer with a background in Mechanical Engineering from NIT Durgapur. Currently working at Carmaa Car Care, I specialize in building scalable web applications using React, Node.js, and MongoDB. I have experience integrating AI/LLM solutions and working with AWS cloud services. I am passionate about creating efficient, user-friendly applications and continuously learning new technologies to stay ahead in the field.
             </div>
           </div>
         </section>
@@ -182,9 +172,22 @@ function App() {
           <p className="text-headingC text-5xl font-bold mb-10">Experience</p>
 
           <div className="flex flex-col md:flex-row justify-center gap-10">
-            {/* Left Card */}
             <div className="border border-amber-950 rounded-2xl p-6 w-full md:w-96 shadow-md">
               <div>
+                <p className="text-3xl font-semibold mb-4">AI/LLM</p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {aiLlm.map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="bg-purple-400  hover:bg-purple-700 hover:scale-105 text-white px-4 py-2 rounded-2xl text-sm"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-10">
                 <p className="text-3xl font-semibold mb-4">Frontend</p>
                 <div className="flex flex-wrap gap-2 justify-center">
                   {frontend.map((skill, idx) => (
@@ -197,23 +200,8 @@ function App() {
                   ))}
                 </div>
               </div>
-
-              <div className="mt-10">
-                <p className="text-3xl font-semibold mb-4">Web Animations</p>
-                <div className="flex flex-wrap gap-2 justify-center">
-                  {animation.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="bg-green-400  hover:bg-green-700 hover:scale-105 text-white px-4 py-2 rounded-2xl text-sm"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
 
-            {/* Right Card */}
             <div className="border border-amber-950 rounded-2xl p-6 w-full md:w-96 shadow-md">
               <div>
                 <p className="text-3xl font-semibold mb-4">Backend</p>
@@ -230,11 +218,23 @@ function App() {
               </div>
 
               <div className="mt-10">
-                <p className="text-2xl font-semibold mb-4">
-                  Database,Tools & Languages
-                </p>
+                <p className="text-2xl font-semibold mb-4">Databases</p>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {Others.map((skill, idx) => (
+                  {databases.map((skill, idx) => (
+                    <span
+                      key={idx}
+                      className="bg-green-400  hover:bg-green-700 hover:scale-105 text-white px-4 py-2 rounded-2xl text-sm"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-10">
+                <p className="text-2xl font-semibold mb-4">DevOps & Tools</p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {devops.map((skill, idx) => (
                     <span
                       key={idx}
                       className="bg-green-400  hover:bg-green-700 hover:scale-105 text-white px-4 py-2 rounded-2xl text-sm"
@@ -246,6 +246,40 @@ function App() {
               </div>
             </div>
           </div>
+
+          <div className="mt-16 max-w-4xl mx-auto text-left">
+            <p className="text-3xl font-bold text-center mb-8">Work Experience</p>
+            <div className="border border-amber-950 rounded-2xl p-6 shadow-md">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <p className="text-2xl font-semibold">Full Stack Developer</p>
+                  <p className="text-gray-600">Carmaa Car Care</p>
+                </div>
+                <p className="text-gray-500">Sep 2025 - Present</p>
+              </div>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li>Built a multimodal car damage analysis feature using LLM to analyze vehicle images</li>
+                <li>Implemented Referral tracking system, driving 30% growth in user acquisition</li>
+                <li>Built automated vehicle information extraction using Google Vision API</li>
+                <li>Designed and implemented notification and event-driven workflows using AWS EventBridge</li>
+                <li>Managed production deployments on AWS using Docker, EC2, ECR, and Docker Swarm</li>
+              </ul>
+            </div>
+            <div className="border border-amber-950 rounded-2xl p-6 shadow-md mt-6">
+              <div className="flex justify-between items-start mb-4">
+                <div>
+                  <p className="text-2xl font-semibold">Full Stack Developer Intern</p>
+                  <p className="text-gray-600">Carmaa Car Care</p>
+                </div>
+                <p className="text-gray-500">May 2025 - Aug 2025</p>
+              </div>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li>Contributed to backend development across multiple microservices</li>
+                <li>Designed and restructured MongoDB schemas with backward compatibility</li>
+                <li>Worked on end-to-end feature for the admin dashboard (React)</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section id="projects" className="text-center mt-10">
@@ -253,7 +287,7 @@ function App() {
           <p className="text-headingC text-5xl font-bold">Projects</p>
           <div className="flex flex-wrap justify-center mt-10 gap-10 px-4">
             <motion.div
-              className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle"
+              className="h-[450px] w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle p-4"
               initial={{ opacity: 0, y: 50 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -261,12 +295,15 @@ function App() {
             >
               <div>
                 <img
-                  src="https://images.unsplash.com/photo-1657812159075-7f0abd98f7b8?q=80&w=1277&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="E commerce Website"
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop"
+                  alt="CRM Dashboard"
+                  className="h-48 w-full object-cover rounded"
                 />
               </div>
-              <p className="my-5">E commerce Website </p>
-              <div className="flex justify-evenly gap-5">
+              <p className="my-5 text-xl font-semibold">CRM Dashboard</p>
+              <p className="text-sm text-gray-600 mb-4">Tech Stack: React (Vite), Node/Express, Vercel, TailwindCSS, MongoDB</p>
+              <p className="text-sm text-gray-700 mb-4">Developed and deployed a full-stack web application using React for frontend with modular components. Applied Redux Toolkit for state management.</p>
+              <div className="flex justify-center gap-5 mt-auto">
                 <div className="flex gap-1">
                   <img
                     src="https://www.svgrepo.com/show/506497/github.svg"
@@ -274,7 +311,7 @@ function App() {
                     alt="Github"
                   />
                   <a
-                    href="https://github.com/sourav7274/P1_Frontend"
+                    href="https://github.com/sourav7274/Actual_Project2_FE"
                     target="_blank"
                     className="cursor-pointer hover:underline"
                   >
@@ -288,7 +325,7 @@ function App() {
                     alt="Github"
                   />
                   <a
-                    href="https://github.com/sourav7274/P1_Backend"
+                    href="https://github.com/sourav7274/ActaulPrpject_BE"
                     target="_blank"
                     className="cursor-pointer hover:underline"
                   >
@@ -302,7 +339,7 @@ function App() {
                     alt="Live Demo"
                   />
                   <a
-                    href="https://p1-frontend-beige.vercel.app/"
+                    href="https://actual-project2-fe.vercel.app/"
                     target="_blank"
                     className="cursor-pointer hover:underline"
                   >
@@ -312,9 +349,8 @@ function App() {
               </div>
             </motion.div>
 
-            {/* Repeat the same for other project cards */}
             <motion.div
-              className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle"
+              className="h-[450px] w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle p-4"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -322,103 +358,28 @@ function App() {
             >
               <div>
                 <img
-                  src="https://plus.unsplash.com/premium_photo-1733328013343-e5ee77acaf05?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="CRM Dashboard"
+                  src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2670&auto=format&fit=crop"
+                  alt="Git Gandalf"
+                  className="h-48 w-full object-cover rounded"
                 />
               </div>
-              <p className="my-5">CRM Dashboard </p>
-              <div>
-                <div className="flex justify-evenly gap-5">
-                  <div className="flex gap-1">
-                    <img
-                      src="https://www.svgrepo.com/show/506497/github.svg"
-                      className="h-[30px]"
-                      alt="Github"
-                    />
-                    <a
-                      href="https://github.com/sourav7274/Actual_Project2_FE"
-                      target="_blank"
-                      className="cursor-pointer hover:underline"
-                    >
-                      Frontend
-                    </a>
-                  </div>
-                  <div className="flex gap-1">
-                    <img
-                      src="https://www.svgrepo.com/show/506497/github.svg"
-                      className="h-[30px]"
-                      alt="Github"
-                    />
-                    <a
-                      href="https://github.com/sourav7274/ActaulPrpject_BE"
-                      target="_blank"
-                      className="cursor-pointer hover:underline"
-                    >
-                      Backend
-                    </a>
-                  </div>
-                  <div className="flex gap-1">
-                    <img
-                      src="https://www.svgrepo.com/show/309737/live.svg"
-                      className="h-[30px]"
-                      alt="Live Demo"
-                    />
-                    <a
-                      href="https://actual-project2-fe.vercel.app/"
-                      target="_blank"
-                      className="cursor-pointer hover:underline"
-                    >
-                      Live Demo
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="h-96 w-96 border border-zinc-600 items-center justify-center flex flex-col rounded-2xl align-middle"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?q=80&w=1100&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Social Media App"
-                />
-              </div>
-              <p className="my-5">Social Media App</p>
-              <div>
-                <div className="flex justify-evenly gap-5">
-                  <div className="flex gap-1">
-                    <img
-                      src="https://www.svgrepo.com/show/506497/github.svg"
-                      className="h-[30px]"
-                      alt="Github"
-                    />
-                    <a
-                      href="https://github.com/sourav7274/redditClone_FE"
-                      target="_blank"
-                      className="cursor-pointer hover:underline"
-                    >
-                      Frontend
-                    </a>
-                  </div>
-                  <div className="flex gap-1">
-                    <img
-                      src="https://www.svgrepo.com/show/506497/github.svg"
-                      className="h-[30px]"
-                      alt="Github"
-                    />
-                    <a
-                      href="https://github.com/sourav7274/redditClone_BE"
-                      target="_blank"
-                      className="cursor-pointer hover:underline"
-                    >
-                      Backend
-                    </a>
-                  </div>
+              <p className="my-5 text-xl font-semibold">Git Gandalf</p>
+              <p className="text-sm text-gray-600 mb-4">Tech Stack: Node.js, Ollama (LLM)</p>
+              <p className="text-sm text-gray-700 mb-4">AI-powered pre-commit hook that uses local LLM (Ollama) to analyze staged git changes and approve/block commits based on security rules. Includes secret detection, code quality validation, and branch protection.</p>
+              <div className="flex justify-center gap-5 mt-auto">
+                <div className="flex gap-1">
+                  <img
+                    src="https://www.svgrepo.com/show/506497/github.svg"
+                    className="h-[30px]"
+                    alt="Github"
+                  />
+                  <a
+                    href="https://github.com/sourav7274/git-gandalf"
+                    target="_blank"
+                    className="cursor-pointer hover:underline"
+                  >
+                    GitHub
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -459,6 +420,7 @@ function App() {
               </a>
             </div>
           </div>
+          <p className="mt-4 text-gray-600">8925743416</p>
           <div className="flex gap-10 justify-center mt-30">
             <a
               className="hover:text-gray-600 hover:underline hover:underline-offset-10"
@@ -486,7 +448,7 @@ function App() {
             </a>
           </div>
           <p className=" mt-35">
-            Copyright © 2025 Dummy Name. All Rights Reserved.
+            Copyright © 2025 Sourav Sarkar. All Rights Reserved.
           </p>
         </section>
       </div>
