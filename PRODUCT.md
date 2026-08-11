@@ -44,7 +44,7 @@ Full Stack Developer specializing in AI/LLM systems — not a generalist who als
 
 - Full resume content reviewed (`Sourav_Sarkar_resume.pdf`): experience bullets, metrics (20% booking conversion lift, 30% user acquisition lift, <3s median AI response time), skills matrix, education (B.Tech Mechanical Engineering, NIT Durgapur, Aug 2023), open-source PR links.
 - No project screenshots or verified live demo links on hand yet — user will provide later. Do not use stock/placeholder photography in their place; use styled placeholders or omit imagery until real assets arrive.
-- Resume PDF is available as `/Resume.pdf` download on the current site (`public/Resume.pdf`).
+- Resume PDF is available as `/Sourav_Sarkar_resume.pdf` download on the current site (`public/Sourav_Sarkar_resume.pdf`).
 
 ## Product Principles
 

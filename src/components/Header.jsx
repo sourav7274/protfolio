@@ -41,7 +41,7 @@ const Header = () => {
             </button>
           ))}
           <a
-            href="/Resume.pdf"
+            href="/Sourav_Sarkar_resume.pdf"
             download
             className="btn-secondary !py-2 !px-4 !text-xs"
           >
@@ -77,7 +77,7 @@ const Header = () => {
               </button>
             ))}
             <a
-              href="/Resume.pdf"
+              href="/Sourav_Sarkar_resume.pdf"
               download
               className="btn-primary justify-center mt-2"
             >
