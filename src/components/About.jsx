@@ -8,7 +8,7 @@ const About = () => (
     <SectionMarker index="01" label="ABOUT" title="A little about me" />
 
     <motion.div
-      className="max-w-3xl mx-auto text-center"
+      className="max-w-5xl mx-auto grid lg:grid-cols-[minmax(0,1.1fr)_minmax(16rem,0.75fr)] lg:gap-20 items-start"
       initial={{ opacity: 0.45, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -18,7 +18,7 @@ const About = () => (
         I moved from mechanical systems to software systems — and kept the
         same curiosity about how every part works together.
       </p>
-      <div className="space-y-5 mt-10 text-text-secondary leading-relaxed">
+      <div className="space-y-5 text-text-secondary leading-relaxed lg:pt-1">
         <p>
           I came into software from an unexpected path: Mechanical Engineering
           at NIT Durgapur. Somewhere between heat transfer and thermodynamics,
@@ -34,7 +34,7 @@ const About = () => (
           workflow, and probably read more about distributed systems than necessary.
         </p>
       </div>
-      <p className="mono text-xs text-text-tertiary mt-10 pt-6 border-t border-border-hairline">
+      <p className="mono text-xs text-text-tertiary mt-10 pt-6 border-t border-border-hairline lg:col-start-2">
         {education.degree} · {education.school} · {education.period}
       </p>
     </motion.div>

@@ -6,23 +6,27 @@ import { GithubIcon, ArrowUpRightIcon, BranchIcon } from "./Icons";
 
 const ProjectCard = ({ project }) => (
   <motion.article
-    className="panel panel-hover p-7 sm:p-10 lg:p-14 text-center"
+    className="panel panel-hover py-8 sm:py-12 lg:py-16"
     initial={{ opacity: 0.45, y: 18 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-80px" }}
     transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
   >
-    <div className="flex justify-center items-center gap-3 mono text-[10px] text-accent-green">
+    <div className="flex items-center gap-3 mono text-[10px] text-accent-green">
         <span className="status-dot" />
         {project.status}
     </div>
 
-    <p className="mono text-sm text-accent-blue mt-6">{project.tagline}</p>
+    <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(15rem,0.75fr)] gap-10 lg:gap-16 mt-8">
+    <div>
+    <p className="mono text-sm text-accent-blue">{project.tagline}</p>
     <h3 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-primary tracking-[-0.04em] leading-none mt-4">
       {project.title}
     </h3>
-    <p className="text-text-secondary leading-relaxed max-w-2xl mx-auto mt-7">{project.description}</p>
-    <div className="flex flex-wrap justify-center gap-2 mt-7">
+    <p className="text-text-secondary leading-relaxed max-w-2xl mt-7">{project.description}</p>
+    </div>
+    <div className="lg:border-l lg:border-border-hairline lg:pl-10 flex flex-col items-start justify-between gap-8">
+    <div className="flex flex-wrap gap-x-5 gap-y-3">
       {project.tech.map((t) => (
         <span key={t} className="tag">{t}</span>
       ))}
@@ -31,18 +35,20 @@ const ProjectCard = ({ project }) => (
       href={project.github}
       target="_blank"
       rel="noreferrer"
-      className="btn-primary mt-8"
+      className="btn-primary"
     >
       <GithubIcon className="h-4 w-4" />
       Explore the source
       <ArrowUpRightIcon className="h-4 w-4" />
     </a>
+    </div>
+    </div>
   </motion.article>
 );
 
 const OpenSourceCard = ({ repo }) => (
   <motion.article
-    className="panel panel-hover p-6 sm:p-7"
+    className="panel panel-hover py-6 sm:py-7"
     whileHover={{ y: -2 }}
     transition={{ duration: 0.2 }}
   >
@@ -106,7 +112,7 @@ const Projects = () => (
         <p className="kicker">PUBLIC CONTRIBUTIONS</p>
         <span className="h-px flex-1 bg-border-hairline" />
       </div>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 md:gap-x-10">
         {openSource.map((repo) => (
           <OpenSourceCard key={repo.name} repo={repo} />
         ))}

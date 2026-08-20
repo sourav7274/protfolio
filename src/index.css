@@ -31,6 +31,7 @@ body {
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  background-image: radial-gradient(circle at 82% 8%, rgba(91, 141, 239, 0.08), transparent 24rem);
 }
 
 button,
@@ -75,15 +76,13 @@ button {
 /* ---- console-grammar building blocks ---- */
 
 .panel {
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border-hairline);
-  border-radius: 8px;
+  border-top: 1px solid var(--color-border-hairline-strong);
+  border-bottom: 1px solid var(--color-border-hairline);
   transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .panel-hover:hover {
-  border-color: var(--color-border-hairline-strong);
-  background: var(--color-bg-surface-raised);
+  border-top-color: var(--color-accent-green);
 }
 
 .mono {
@@ -143,9 +142,8 @@ button {
 .tag {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  padding: 0.3rem 0.65rem;
-  border: 1px solid var(--color-border-hairline-strong);
-  border-radius: 4px;
+  padding: 0.1rem 0;
+  border-bottom: 1px solid var(--color-border-hairline-strong);
   color: var(--color-text-secondary);
   transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
@@ -189,7 +187,6 @@ button {
 .page-shell {
   width: min(100%, 1440px);
   margin-inline: auto;
-  border-inline: 1px solid var(--color-border-hairline);
 }
 
 .hero-display {
@@ -203,17 +200,9 @@ button {
 .system-panel {
   position: relative;
   overflow: hidden;
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border-hairline-strong);
-  border-radius: 8px;
-}
-
-.system-panel::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 1px;
-  background: var(--color-accent-blue);
+  background: linear-gradient(90deg, rgba(17, 23, 34, 0.75), rgba(17, 23, 34, 0.2));
+  border-top: 1px solid var(--color-border-hairline-strong);
+  border-bottom: 1px solid var(--color-border-hairline);
 }
 
 .system-row {
@@ -278,6 +267,19 @@ button {
   border-top: 1px solid var(--color-border-hairline);
 }
 
+.editorial-rule {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.editorial-rule::before {
+  content: "";
+  width: 2.75rem;
+  height: 1px;
+  background: var(--color-accent-green);
+}
+
 @keyframes blink {
   0%, 45% { opacity: 1; }
   50%, 95% { opacity: 0; }
@@ -306,10 +308,6 @@ button {
 }
 
 @media (max-width: 1023px) {
-  .page-shell {
-    border-inline: 0;
-  }
-
   .metric-cell:nth-child(2) {
     border-right: 0;
   }

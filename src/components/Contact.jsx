@@ -29,8 +29,8 @@ const Contact = () => (
   <SectionWrapper id="contact" className="py-20 lg:py-28 px-6 lg:px-10 xl:px-16 border-t border-border-hairline bg-bg-surface/30">
       <SectionMarker index="04" label="CONTACT" title="Let&apos;s make something good" />
 
-      <div className="max-w-3xl mx-auto text-center">
-          <p className="text-text-secondary max-w-[58ch] mx-auto leading-relaxed">
+      <div className="max-w-5xl mx-auto">
+          <p className="text-text-secondary max-w-[58ch] leading-relaxed">
             I&apos;m open to full-stack and AI/LLM systems roles. If you&apos;re hiring,
             have an interesting problem, or just want to talk shop, I&apos;d love to hear from you.
           </p>
@@ -39,7 +39,7 @@ const Contact = () => (
             href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-end gap-3 justify-center mt-8 max-w-full text-xl sm:text-4xl lg:text-5xl font-bold text-text-primary hover:text-accent-green transition-colors tracking-[-0.035em] leading-tight"
+            className="group inline-flex items-end gap-3 mt-8 max-w-full text-xl sm:text-4xl lg:text-5xl font-bold text-text-primary hover:text-accent-green transition-colors tracking-[-0.035em] leading-tight"
           >
             {profile.email}
             <ArrowUpRightIcon className="hidden sm:block h-6 w-6 mb-1.5 text-text-tertiary group-hover:text-accent-green transition-colors flex-shrink-0" />
