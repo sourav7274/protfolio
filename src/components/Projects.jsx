@@ -5,24 +5,24 @@ import { projects, openSource } from "../data/content";
 import { GithubIcon, ArrowUpRightIcon, BranchIcon } from "./Icons";
 
 const ProjectCard = ({ project }) => (
-  <motion.div className="panel panel-hover p-6 sm:p-8" whileHover={{ y: -3 }}>
-    <div className="flex items-start justify-between gap-4 mb-3">
-      <h3 className="text-xl sm:text-2xl font-bold text-text-primary">{project.title}</h3>
-      <span className="mono text-[10px] px-2 py-1 border border-border-hairline-strong rounded text-accent-green whitespace-nowrap">
+  <motion.article
+    className="panel panel-hover p-7 sm:p-10 lg:p-14 text-center"
+    initial={{ opacity: 0.45, y: 18 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-80px" }}
+    transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+  >
+    <div className="flex justify-center items-center gap-3 mono text-[10px] text-accent-green">
+        <span className="status-dot" />
         {project.status}
-      </span>
     </div>
-    <p className="mono text-sm text-accent-blue mb-4">{project.tagline}</p>
-    <p className="text-text-secondary leading-relaxed mb-4">{project.description}</p>
 
-    {project.howItWorks && (
-      <div className="panel bg-bg-base p-4 mb-5">
-        <p className="kicker mb-2">how it works</p>
-        <p className="text-text-secondary text-sm leading-relaxed">{project.howItWorks}</p>
-      </div>
-    )}
-
-    <div className="flex flex-wrap gap-2 mb-5">
+    <p className="mono text-sm text-accent-blue mt-6">{project.tagline}</p>
+    <h3 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-primary tracking-[-0.04em] leading-none mt-4">
+      {project.title}
+    </h3>
+    <p className="text-text-secondary leading-relaxed max-w-2xl mx-auto mt-7">{project.description}</p>
+    <div className="flex flex-wrap justify-center gap-2 mt-7">
       {project.tech.map((t) => (
         <span key={t} className="tag">{t}</span>
       ))}
@@ -31,16 +31,21 @@ const ProjectCard = ({ project }) => (
       href={project.github}
       target="_blank"
       rel="noreferrer"
-      className="mono text-sm text-text-secondary hover:text-accent-green transition-colors inline-flex items-center gap-2"
+      className="btn-primary mt-8"
     >
       <GithubIcon className="h-4 w-4" />
-      View source
+      Explore the source
+      <ArrowUpRightIcon className="h-4 w-4" />
     </a>
-  </motion.div>
+  </motion.article>
 );
 
 const OpenSourceCard = ({ repo }) => (
-  <motion.div className="panel panel-hover p-6" whileHover={{ y: -3 }}>
+  <motion.article
+    className="panel panel-hover p-6 sm:p-7"
+    whileHover={{ y: -2 }}
+    transition={{ duration: 0.2 }}
+  >
     <div className="flex items-start justify-between mb-1">
       <a
         href={repo.href}
@@ -51,7 +56,7 @@ const OpenSourceCard = ({ repo }) => (
         {repo.name}
         <ArrowUpRightIcon className="h-3.5 w-3.5" />
       </a>
-      <span className="mono text-[10px] px-2 py-1 border border-border-hairline-strong rounded text-accent-blue whitespace-nowrap">
+      <span className="mono text-[10px] text-accent-blue whitespace-nowrap">
         {repo.stat}
       </span>
     </div>
@@ -79,32 +84,33 @@ const OpenSourceCard = ({ repo }) => (
         </a>
       ))}
     </div>
-  </motion.div>
+  </motion.article>
 );
 
 const Projects = () => (
-  <SectionWrapper id="projects" className="py-20 px-6 lg:px-20 border-t border-border-hairline">
-    <div className="max-w-6xl mx-auto">
-      <SectionMarker index="03" label="PROJECTS" title="Things I've built" />
-      <p className="text-text-secondary max-w-2xl -mt-6 mb-10">
+  <SectionWrapper id="projects" className="py-20 lg:py-28 px-6 lg:px-10 xl:px-16 border-t border-border-hairline">
+      <SectionMarker index="03" label="PROJECTS" title="Things I&apos;ve made" />
+      <p className="text-text-secondary text-center max-w-[64ch] mx-auto -mt-5 mb-12 lg:mb-16 leading-relaxed">
         My day job is mostly Carmaa's codebase, which isn't mine to show. This
         is what I've built and shipped on my own — real code, real diffs,
         nothing you have to take my word for.
       </p>
 
-      <div className="space-y-6 mb-16">
+      <div className="max-w-4xl mx-auto mb-16">
         {projects.map((p) => (
           <ProjectCard key={p.key} project={p} />
         ))}
       </div>
 
-      <p className="kicker mb-6">open source</p>
+      <div className="flex items-center gap-5 mb-6">
+        <p className="kicker">PUBLIC CONTRIBUTIONS</p>
+        <span className="h-px flex-1 bg-border-hairline" />
+      </div>
       <div className="grid md:grid-cols-2 gap-6">
         {openSource.map((repo) => (
           <OpenSourceCard key={repo.name} repo={repo} />
         ))}
       </div>
-    </div>
   </SectionWrapper>
 );
 

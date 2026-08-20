@@ -26,40 +26,47 @@ const CONTACT_ITEMS = [
 ];
 
 const Contact = () => (
-  <SectionWrapper id="contact" className="py-20 px-6 lg:px-20 border-t border-border-hairline">
-    <div className="max-w-3xl mx-auto">
-      <SectionMarker index="04" label="CONTACT" title="Let's talk" />
+  <SectionWrapper id="contact" className="py-20 lg:py-28 px-6 lg:px-10 xl:px-16 border-t border-border-hairline bg-bg-surface/30">
+      <SectionMarker index="04" label="CONTACT" title="Let&apos;s make something good" />
 
-      <p className="text-text-secondary mb-10 max-w-xl">
-        Open to full-stack and AI/LLM systems roles. If you're hiring or just
-        want to talk shop about production LLM systems, reach out — I usually
-        reply within a day.
-      </p>
+      <div className="max-w-3xl mx-auto text-center">
+          <p className="text-text-secondary max-w-[58ch] mx-auto leading-relaxed">
+            I&apos;m open to full-stack and AI/LLM systems roles. If you&apos;re hiring,
+            have an interesting problem, or just want to talk shop, I&apos;d love to hear from you.
+          </p>
 
-      <div className="panel divide-y divide-border-hairline">
-        {CONTACT_ITEMS.map((item) => (
-          <motion.a
-            key={item.label}
-            href={item.href}
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center justify-between gap-4 p-5 sm:p-6 group hover:bg-bg-surface-raised transition-colors"
-            whileHover={{ x: 4 }}
+            className="group inline-flex items-end gap-3 justify-center mt-8 max-w-full text-xl sm:text-4xl lg:text-5xl font-bold text-text-primary hover:text-accent-green transition-colors tracking-[-0.035em] leading-tight"
           >
-            <div className="flex items-center gap-5">
-              <div className="w-11 h-11 rounded-lg border border-border-hairline-strong flex items-center justify-center text-accent-green flex-shrink-0">
-                <item.Icon className="h-5 w-5" />
-              </div>
-              <div>
-                <p className="mono text-xs text-text-tertiary">{item.label}</p>
-                <p className="text-text-primary font-medium mt-0.5">{item.value}</p>
-              </div>
-            </div>
-            <ArrowUpRightIcon className="h-4 w-4 text-text-tertiary group-hover:text-accent-green transition-colors flex-shrink-0" />
-          </motion.a>
-        ))}
+            {profile.email}
+            <ArrowUpRightIcon className="hidden sm:block h-6 w-6 mb-1.5 text-text-tertiary group-hover:text-accent-green transition-colors flex-shrink-0" />
+          </a>
+
+          <div className="grid md:grid-cols-3 mt-12 border-y border-border-hairline divide-y md:divide-y-0 md:divide-x divide-border-hairline text-left">
+            {CONTACT_ITEMS.map((item) => (
+              <motion.a
+                key={item.label}
+                href={item.href}
+                target={item.label === "Phone" ? undefined : "_blank"}
+                rel={item.label === "Phone" ? undefined : "noreferrer"}
+                className="flex items-center justify-between gap-4 py-5 md:px-5 md:first:pl-0 group"
+                whileHover={{ y: -2 }}
+              >
+                <div className="flex items-center gap-3 min-w-0">
+                  <item.Icon className="h-4 w-4 text-accent-green flex-shrink-0" />
+                  <div className="min-w-0">
+                    <p className="mono text-[10px] text-text-tertiary">{item.label.toUpperCase()}</p>
+                    <p className="text-text-primary text-sm font-medium mt-0.5 truncate">{item.value}</p>
+                  </div>
+                </div>
+                <ArrowUpRightIcon className="h-3.5 w-3.5 text-text-tertiary group-hover:text-accent-green transition-colors flex-shrink-0" />
+              </motion.a>
+            ))}
+          </div>
       </div>
-    </div>
   </SectionWrapper>
 );
 

@@ -4,44 +4,40 @@ import SectionMarker from "./SectionMarker";
 import { education } from "../data/content";
 
 const About = () => (
-  <SectionWrapper id="about" className="py-20 px-6 lg:px-20">
-    <div className="max-w-6xl mx-auto">
-      <SectionMarker index="01" label="ABOUT" title="Background" />
+  <SectionWrapper id="about" className="py-20 lg:py-28 px-6 lg:px-10 xl:px-16">
+    <SectionMarker index="01" label="ABOUT" title="A little about me" />
 
-      <div className="grid lg:grid-cols-3 gap-6">
-        <motion.div className="panel panel-hover p-6" whileHover={{ y: -3 }}>
-          <p className="kicker mb-3">education</p>
-          <p className="text-lg font-semibold text-text-primary">
-            {education.degree}
-          </p>
-          <p className="text-text-secondary mt-2 text-sm">{education.school}</p>
-          <p className="mono text-text-tertiary mt-3 text-xs">{education.period}</p>
-        </motion.div>
-
-        <motion.div className="panel panel-hover p-6 lg:col-span-2" whileHover={{ y: -3 }}>
-          <p className="kicker mb-3">notes</p>
-          <p className="text-text-secondary leading-relaxed">
-            I came into software from an unexpected path — Mechanical
-            Engineering at NIT Durgapur. Somewhere between heat transfer and
-            thermodynamics I realized I'd rather write code than read steam
-            tables, and started building.
-          </p>
-          <p className="text-text-secondary leading-relaxed mt-4">
-            At <span className="text-text-primary font-medium">Carmaa Car Care</span>,
-            I own AI agents, a multi-tenant SaaS platform, and the production
-            infrastructure underneath both — React and Node.js on the surface,
-            LangChain-orchestrated LLM agents in the middle, Docker Swarm and
-            AWS at the base. I like taking a feature from idea to something
-            running in production, end to end.
-          </p>
-          <p className="text-text-secondary leading-relaxed mt-4">
-            Outside of that, I contribute to open source (PeerTube, Velonus),
-            build small tools that scratch my own itch, and read more about
-            distributed systems than is strictly necessary.
-          </p>
-        </motion.div>
+    <motion.div
+      className="max-w-3xl mx-auto text-center"
+      initial={{ opacity: 0.45, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-text-primary tracking-[-0.03em] leading-tight">
+        I moved from mechanical systems to software systems — and kept the
+        same curiosity about how every part works together.
+      </p>
+      <div className="space-y-5 mt-10 text-text-secondary leading-relaxed">
+        <p>
+          I came into software from an unexpected path: Mechanical Engineering
+          at NIT Durgapur. Somewhere between heat transfer and thermodynamics,
+          I realized I&apos;d rather build with code than read steam tables.
+        </p>
+        <p>
+          Today, I work on AI agents, multi-tenant products, and the production
+          infrastructure underneath them. I like taking an idea all the way from
+          a rough thought to something people can actually use.
+        </p>
+        <p>
+          Outside work, I contribute to open source, build small tools for my own
+          workflow, and probably read more about distributed systems than necessary.
+        </p>
       </div>
-    </div>
+      <p className="mono text-xs text-text-tertiary mt-10 pt-6 border-t border-border-hairline">
+        {education.degree} · {education.school} · {education.period}
+      </p>
+    </motion.div>
   </SectionWrapper>
 );
 

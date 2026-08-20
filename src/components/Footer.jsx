@@ -18,12 +18,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t border-border-hairline px-6 lg:px-20 py-10">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer className="border-t border-border-hairline px-6 lg:px-10 xl:px-16 py-10">
+      <div className="max-w-[1440px] mx-auto flex flex-col items-center gap-6">
         <div className="flex items-center gap-2">
           <span className="status-dot" />
           <Link to="/" className="mono text-sm text-text-secondary hover:text-accent-green transition-colors">
-            ~/sourav-sarkar
+            sourav.sarkar / portfolio
           </Link>
         </div>
 
@@ -52,9 +52,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="mono text-xs text-text-tertiary text-center mt-8">
-        © 2026 Sourav Sarkar. Built with React + Tailwind.
-      </p>
+      <div className="max-w-[1440px] mx-auto flex flex-col sm:flex-row justify-center gap-x-6 gap-y-2 pt-6 mt-8 border-t border-border-hairline mono text-[10px] text-text-tertiary text-center">
+        <p>© 2026 SOURAV SARKAR</p>
+        <p>REACT / TAILWIND / MOTION</p>
+      </div>
     </footer>
   );
 };
